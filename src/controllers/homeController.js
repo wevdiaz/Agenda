@@ -1,15 +1,9 @@
 
 module.exports = {
 
-    home(req, res) {
+    index(req, res) {
         
-        return res.render("index", {
-            titulo: "Novo Título adicionado",           
-        });
+        return res.render("index");
     },
 
-    tratarDados(req, res) {
-
-        return res.send(req.body);
-    }
 }
