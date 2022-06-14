@@ -19,7 +19,7 @@ const flash = require("connect-flash");
 
 const routes = require("./router");
 const path = require("path");
-const { checkCsrfError } = require("./src/middlewares/middlewares");
+const { checkCsrfError, middlewareGlobal } = require("./src/middlewares/middlewares");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,6 +42,7 @@ app.use(flash());
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
+app.use(middlewareGlobal);
 app.use(checkCsrfError);
 
 app.use(routes);
