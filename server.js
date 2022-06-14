@@ -21,6 +21,7 @@ const routes = require("./router");
 const path = require("path");
 const { checkCsrfError } = require("./src/middlewares/middlewares");
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "public")));
 
