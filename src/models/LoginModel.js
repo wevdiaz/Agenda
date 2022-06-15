@@ -18,7 +18,11 @@ class Login {
 
     async register() {
         this.validate();
-        if (this.errors.length > 0) return ;
+        if (this.errors.length > 0) return;
+
+        await this.userExists();
+        if (this.errors.length > 0) return;
+
 
         try {
             const salt = bcryptjs.genSaltSync();
@@ -28,7 +32,12 @@ class Login {
         } catch(err) {
             console.log(err);
         }
+    }
 
+    async userExists() {
+        const user = await LoginModel.findOne({email: this.body.email});
+        
+        if (user) this.errors.push("Usuário já cadastrado!");
     }
 
     validate() {
