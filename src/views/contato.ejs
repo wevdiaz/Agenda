@@ -1,0 +1,45 @@
+<%- include("parts/head")  %> 
+<%- include("parts/nav")  %> 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center">Agenda</h1>
+                <p class="text-center lead">Crie ou edite seus contatos.</p>
+
+                <%- include("parts/messages") %> 
+
+                <form action="/contato/register" method="POST">
+                    <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" name="nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" class="form-control" name="sobrenome">
+                    </div>                   
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>  
+                    
+                    <div class="form-group">
+                        <label for="telephone">Telefone</label>
+                        <input type="tel" class="form-control" name="telephone">
+                    </div>
+                                               
+                    <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+                </form>
+
+            </div>
+
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+<%- include("parts/footer")  %>     
