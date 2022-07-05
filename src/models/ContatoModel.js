@@ -12,10 +12,11 @@ const ContatoSchema = new mongoose.Schema({
 const ContatoModel = mongoose.model("Contato", ContatoSchema);
 
 class Contato {
-    constructor (body) {
+    constructor (body, id) {
         this.body = body;
         this.errors = [];
         this.contato = null;
+        this.id = id;
     }
 
     async register() {
@@ -50,7 +51,13 @@ class Contato {
         };
     }
 
-    async findOne(id) {}
+    async findOne() {
+        
+        if (typeof this.id !== "string" || this.id.length < 12 || this.id.length > 24) return;
+
+        const user = await ContatoModel.findById(this.id);
+        return user;
+    }
 }
 
 module.exports = Contato;

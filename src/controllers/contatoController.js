@@ -1,7 +1,7 @@
 const Contato = require("../models/ContatoModel");
 
 exports.index = (req, res) => {
-    return res.render("contato");
+    return res.render("contato", {contatoUser: {} });
 }
 
 exports.register = async (req, res) => {
@@ -23,10 +23,11 @@ exports.register = async (req, res) => {
     }
 }
 
-exports.editContact = (req, res) => {
-    if (!req.params.id) return res.render("404");
+exports.editContact = async (req, res) => {
+    const contato = new Contato(null, req.params.id)
+    const contatoUser = await contato.findOne();
 
-    const contatoUser = req.params.id;
+    if (!contatoUser) return res.render("404");
 
-    return res.send("Edição de contato - ID: " + contatoUser);
+    return res.render("contato", {contatoUser});
 }

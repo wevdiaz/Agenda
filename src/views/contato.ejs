@@ -15,22 +15,22 @@
                     <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" name="nome">
+                        <input type="text" class="form-control" name="nome" value=<%= contatoUser.nome %>>
                     </div>
 
                     <div class="form-group">
                         <label for="sobrenome">Sobrenome</label>
-                        <input type="text" class="form-control" name="sobrenome">
+                        <input type="text" class="form-control" name="sobrenome" value=<%= contatoUser.sobrenome %>>
                     </div>                   
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" value=<%= contatoUser.email %>>
                     </div>  
                     
                     <div class="form-group">
                         <label for="telephone">Telefone</label>
-                        <input type="tel" class="form-control" name="telephone">
+                        <input type="tel" class="form-control" name="telephone" value=<%= contatoUser.telephone %>>
                     </div>
                                                
                     <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
