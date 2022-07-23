@@ -17,6 +17,7 @@ class Contato {
         this.errors = [];
         this.contato = null;
         this.id = id;
+        this.contatos = null;
     }
 
     async register() {
@@ -59,6 +60,14 @@ class Contato {
         return user;
     }
 
+    async findAllContacts() {
+        this.contatos = await ContatoModel.find().sort({ criadoEm: -1 });  
+        return this.contatos;
+    }
+
+    
+
+    
     async update(id) {
         if (typeof id !== "string") return;
         this.validate();
@@ -67,5 +76,6 @@ class Contato {
         this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
     }
 }
+
 
 module.exports = Contato;

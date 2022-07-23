@@ -1,9 +1,13 @@
+const Contato = require("../models/ContatoModel");
+
 
 module.exports = {
 
-    index(req, res) {
-        
-        return res.render("index");
+    async index(req, res) {
+        const buscarContatos = new Contato();
+        const contatos = await buscarContatos.findAllContacts();
+       
+        return res.render("index", { contatos });
     },
 
 }

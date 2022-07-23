@@ -13,18 +13,32 @@
 
                 <div class="responsive-table">
                     <table class="table my-3">
-                        <tr>
+                        <% if (contatos) { %>
+                            <% contatos.forEach(contato => { %>
+                                <tr>
+                                    <td><%= contato.nome %></td>
+                                    <td><%= contato.sobrenome %></td>
+                                    <td><%= contato.telephone %></td>
+                                    <td><%= contato.email %></td>
+                                    <td><a href="/contato/<%= contato._id %>">Editar</a></td>
+                                    <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <p>Ainda não há nenhum contato cadastrado.</p>
+                        <% } %>
+                        <!-- <tr>
                             <td>Yoko</td>
                             <td>Yamatsu</td>
                             <td>54845545451</td>
                             <td>yokoyamatsu2022@gmail.com</td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr>
                             <td>Alex</td>
                             <td>Castillo</td>
                             <td>58118465174</td>
                             <td>alexcastillo2022@gmail.com</td>
-                        </tr>                        
+                        </tr>                         -->
                     </table>
                 </div>
 
