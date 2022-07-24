@@ -63,9 +63,7 @@ class Contato {
     async findAllContacts() {
         this.contatos = await ContatoModel.find().sort({ criadoEm: -1 });  
         return this.contatos;
-    }
-
-    
+    }   
 
     
     async update(id) {
@@ -74,6 +72,12 @@ class Contato {
         if (this.errors.length > 0) return;
 
         this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
+    }
+
+    async delete(id) {
+        if (typeof id !== "string" || id.length < 12 || id.length > 24) return;
+        const contato = await ContatoModel.findOneAndDelete(id);
+        return contato;
     }
 }
 
