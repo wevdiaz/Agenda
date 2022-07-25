@@ -76,7 +76,7 @@ class Contato {
 
     async delete(id) {
         if (typeof id !== "string" || id.length < 12 || id.length > 24) return;
-        const contato = await ContatoModel.findOneAndDelete(id);
+        const contato = await ContatoModel.findOneAndDelete({_id: id });
         return contato;
     }
 }
