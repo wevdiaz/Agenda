@@ -7,9 +7,8 @@ import './assets/css/style.css';
 const formRegister = document.getElementById("formRegister");
 const formLogin = document.getElementById("formLogin");
 
-// formRegister.addEventListener("submit", checkFieldsForm );
-
-// formLogin.addEventListener("submit", checkFieldsForm );
+formRegister.addEventListener("submit", checkFieldsForm );
+formLogin.addEventListener("submit", checkFieldsForm );
 
 function createSpan(message) {
   const classError = "text-center d-block fs-6 text-danger fst-italic".split(" ");
@@ -55,20 +54,7 @@ function checkFieldsForm(e) {
   }
 }
 
-function removeMessageUser() {
-  const messageUser = document.querySelector("boxMessage");
 
-  console.log(messageUser);
 
-  if (messageUser) {
-    setTimeout(()=> {
-      messageUser.style.display= "none";
-      messageUser.style.transition= ".5s";
-    }, 3000)
-  }
-}
 
-const formContact = document.querySelector("form");
-
-formContact.addEventListener("load", removeMessageUser);
 
