@@ -1,6 +1,11 @@
 # :notebook_with_decorative_cover: Agenda
 
 ***
+<p align="center">
+    <img src="https://github.com/wevdiaz/Agenda/blob/main/image/tela_agenda.png?raw=true">
+</p>
+
+***
 
 <p align="center">  
       <a>
